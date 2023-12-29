@@ -569,7 +569,7 @@ textarea{
 }
 
 .form input[type="submit"]{
-    color: darkgrey;
+    color: rgb(255, 255, 255);
 }
 
 .form input[type="submit"]:hover{
@@ -577,12 +577,17 @@ textarea{
 	background-color: rgba(83,23,140,1);
     box-shadow: 0 0 10px rgba(83,23,140,1), 0 0 40px rgba(83,23,140,1), 0 0 80px rgba(83,23,140,1);
 	border-bottom:none;
-    color: darkgrey;
+    color: rgb(255, 255, 255);
     color: #fff;
 }
 
 .form input[type="submit"]:focus{
     letter-spacing: 2px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ffffff; /* El color que desees */
+    opacity: 1; /* En algunos navegadores, se requiere para asegurar el color */
 }
 
 /*------------------------------FOOTER------------------------------*/
