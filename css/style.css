@@ -74,6 +74,7 @@ header .logo img, header .menu-icon img {
 
 header .logo img {
     width: 50px; 
+    height: auto;
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -87,7 +88,8 @@ header .logo img {
 }
 
 header .menu-icon img {
-    width: 50px; 
+    width: 50px;
+    height: auto;
 }
 
 /*--------------------------Menu Original--------------------------------------*/
@@ -389,26 +391,25 @@ header .menu-icon img {
 .imagen_fondo, .imagen_fondo2, .imagen_fondo3 {
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    padding: 3%;
 }
 
 /* Diferencias específicas */
-.imagen_fondo {
-    background-image: url(../images/1.jpg);
+.imagen_fondo img{
+    width: 100%;
+    height: 100%;
 }
 
-.imagen_fondo2 {
-    background-image: url(../images/tienda-nube.gif);
+.imagen_fondo2 video{
+    width: 100%;
+    height: 100%;
 }
 
-.imagen_fondo3{
-    background-image: url(../images/construction2.gif);
-    background-position: start;
+.imagen_fondo3 img{
+    width: 100%;
+    height: 100%;
 }
 
 /* Estilos comunes para titulo-1-proyect y titulo-2-proyect */
@@ -508,6 +509,7 @@ header .menu-icon img {
 
 .redes img{
     width: 40%;
+    height: auto;
     transition: transform 0.5s;
 }
 
