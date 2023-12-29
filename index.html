@@ -4,43 +4,44 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/images/logox2.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Appella Julian</title>
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet">
+        <script defer src="js/index.js"></script>
+        <script defer src="js/menuDesplegable.js"></script>
     </head>
     <body>
+        <img src="images/rocket.gif" alt="rocket" id="rocket" class="rocket"/>
         <header>
-            <div class="nav1">
-                <div class="logo">
-				    <a href="index.html"><img src="images/logox.png"></a>
-				</div>
-				<div class="botones">
-					<a href="#home">HOME</a>
-					<a href="#about-me">ABOUT ME</a>
-					<a href="#skills">SKILLS</a>
-                    <a href="#works">WORKS</a>
-                    <a href="#contact">CONTACT</a>
-				</div>	
+            <div class="logo">
+                <a href="index.html"><img src="images/logox2.ico" alt="Logo" /></a>
             </div>
-            <div class="nav2">
-                <div class="nav2__logo">
-					<a href="index.html"><img src="images/logox.png"></a>
-				</div>
-                <div class="nav2__icono">
-                    <label for="nav2-checkbox">
-                        <img src="images/menu.png" alt="">
-                    </label>	
-                </div>
+            <div class="menu-icon">
+                <img src="images/menu.png" alt="Menu" />
             </div>
-            <input type="checkbox" class="nav-responsive__checkbox" id="nav2-checkbox">
-            <div class="secciones2">
-				<a href="#home">HOME</a>
-				<a href="#about-me">ABOUT ME</a>
-				<a href="#skills">SKILLS</a>
-                <a href="#works">WORKS</a>
-                <a href="#contact">CONTACT</a>
-            </div>
-            <div class="presentacion" id="home">
+            <nav class="menu-original">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#about-me">ABOUT ME</a></li>
+                    <li><a href="#skills">SKILLS</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+        <nav id="menu-desplegable" class="menu-desplegable" style="display: none;">
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about-me">ABOUT ME</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#works">WORKS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section class="presentation" id="home">
                 <div class="titulo">
                     <span class="primario">APPELLA</span>
                     <span class="secundario">JULIAN</span>
@@ -48,106 +49,109 @@
                 <div class="imagen-perfil">
                     <img src="images/perfil.png">
                 </div>
+            </section>
+            <section class="about-me" id="about-me">
+                <div class="img-about" id="about-me-img"><img src="images/uni.gif"></div>
+                <div class="about-h3" id="about-me-h3">
+                    <h3>Hello! My name is Julian Appella and I am taking my first steps in this wide and exciting world of programming.<br><br>
+                        Currently (2023) I am studying the second year of the Computer Engineering degree at the National University of La Matanza in Buenos Aires, Argentina.<br><br>
+                        In turn I am internalizing what Web and front-end Development is, with expectations of working in back-end development, taking web development courses at Coderhouse academy, more specifically Html, Css and Javascript courses.<br><br>
+                    </h3>
+                </div>
+            </section>
+            <section class="skills" id="skills">
+                <div class="cajitas-skills"><h2>Skills</h2></div>
+                <div class="cajitas-skills">
+                    <h3>Html</h3>
+                    <div class="barra"></div>
+                    <img src="images/html.png">
+                    <div class="barra"></div>
+                    <h3>Advanced</h3>
+                </div>
+                <div class="cajitas-skills">
+                    <h3>Css</h3>
+                    <div class="barra"></div>
+                    <img src="images/css.png">
+                    <div class="barra"></div>
+                    <h3>Advanced</h3>
+                </div>
+                <div class="cajitas-skills">
+                    <h3>Javascript</h3>
+                    <div class="barra"></div>
+                    <img src="images/js.png">
+                    <div class="barra"></div>
+                    <h3>Basic</h3>
+                </div>
+                <div class="cajitas-skills">
+                    <h3>C++</h3>
+                    <div class="barra"></div>
+                    <img src="images/cpp.png">
+                    <div class="barra"></div>
+                    <h3>Basic</h3>
+                </div>
+                <div class="cajitas-skills">
+                    <h3>GitHub</h3>
+                    <div class="barra"></div>
+                    <img src="images/github.png">
+                    <div class="barra"></div>
+                    <h3>Basic</h3>
+                </div>
+        </section>
+        <section class="works" id="works">
+            <h2 class="works-h2">Works</h2>
+            <div class="works__projects">
+                <div class="works__project">
+                 <div class="imagen_fondo">
+                        <a href="https://industriacem1.000webhostapp.com/" target="_BLANK">
+                            <div class="titulo-1-proyect">Project 1 (The first project)</div>
+                            <div class="titulo-2-proyect">Industria cem (click here)</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="works__project">
+                    <div class="imagen_fondo2">
+                        <a href="https://lalavanderia.netlify.app/" target="_BLANK">
+                            <div class="titulo-1-proyect">Project 2 (Implementing JS)</div>
+                            <div class="titulo-2-proyect">TIENDA NUBE (click here)</div>
+                        </a>
+                    </div>
+                </div>
+                <div class="works__project">
+                    <div class="imagen_fondo3">
+                        <a href="" target="_BLANK">
+                            <div class="titulo-1-proyect">Project 3 (Implementing SQL)</div>
+                            <div class="titulo-2-proyect">Under construction</div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </header>
-        <main>
-            <div class="contenedor">
-                <section class="contenedor__about-me" id="about-me">
-                    <div class="img-about"><img src="images/uni.jpg"></div>
-                    <div class="about-h3">
-                        <h3>Hello! My name is Julian Appella and I am taking my first steps in this wide and exciting world of programming.<br><br>
-                            Currently (2023) I am studying the second year of the Computer Engineering degree at the National University of La Matanza in Buenos Aires, Argentina.<br><br>
-                            In turn I am internalizing what Web and front-end Development is, with expectations of working in back-end development, taking web development courses at Coderhouse academy, more specifically Html and Css courses.<br><br>
-                            Dedication, versatility, responsibility and proactivity are some of the adjectives that describe my profile, as well as excellent human relations management and a great learning capacity.
-                        </h3>
-                    </div>
-                </section>
-                <section class="contenedor__skills" id="skills">
-                        <div class="cajitas-skills"><h2>Skills</h2></div>
-                        <div class="cajitas-skills">
-                            <div class="h3"><h3>Html</h3></div>
-                            <div class="barra"></div>
-                            <img src="images/html.png">
-                            <div class="barra"></div>
-                            <div class="h3"><h3>Advanced</h3>
-                            </div>
-                        </div>
-                        <div class="cajitas-skills">
-                            <div class="h3"><h3>Css</h3></div>
-                            <div class="barra"></div>
-                            <img src="images/css.png">
-                            <div class="barra"></div>
-                            <div class="h3"><h3>Advanced</h3>
-                            </div>
-                        </div>
-                        <div class="cajitas-skills">
-                            <div class="h3"><h3>Javascript</h3></div>
-                            <div class="barra"></div>
-                            <img src="images/js.png">
-                            <div class="barra"></div>
-                            <div class="h3"><h3>Basic</h3></div>
-                        </div>
-                        <div class="cajitas-skills">
-                            <div class="h3"><h3>C++</h3></div>
-                            <div class="barra"></div>
-                            <img src="images/cpp.png">
-                            <div class="barra"></div>
-                            <div class="h3"><h3>Basic</h3></div>
-                        </div>
-                        <div class="cajitas-skills">
-                            <div class="h3"><h3>GitHub</h3></div>
-                            <div class="barra"></div>
-                            <img src="images/github.png">
-                            <div class="barra"></div>
-                            <div class="h3"><h3>Basic</h3></div>
-                        </div>
-                </section>
-                <section class="contenedor__works" id="works">
-                    <div class="works-h2"><h2>Works</h2></div>
-                    <div class="works-cem1">
-                        <div class="imagen_fondo">
-                            <a href="https://industriacem1.000webhostapp.com/" target="_BLANK">
-                                <div class="deroul_titre">Proyect 1 (The first proyect)</div>
-                                <div class="deroul_soustitre">Industria cem (click here)</div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="works-cem2">
-                        <div class="imagen_fondo2">
-                            <a href="https://lalavanderia.netlify.app/" target="_BLANK">
-                                <div class="deroul_titre">Proyect 2 (Implementing JS)</div>
-                                <div class="deroul_soustitre">TIENDA NUBE (click here)</div>
-                            </a>
-                        </div>
-                    </div>
-                </section>
-                <section class="contenedor__contact" id="contact">
-                    <div class="redes">
-                        <div class="redes__h2"><h2>Contact me!</h2></div>
-                        <div class="redes__iconos">
-                            <a href="https://wa.me/5491144132895" target="_BLANK"><img src="images/linke.png"></a>
-				            <a href="https://www.instagram.com/ap.julian_/" target="_BLANK"><img src="images/insta.png"></a>
-				            <a href="https://wa.me/5491144132895" target="_BLANK"><img src="images/whatsapp.png"></a>
-                            <a href="https://www.facebook.com/julian.appella.5/" target="_BLANK"><img src="images/face.png"></a>
-                        </div>
-                    </div>
-                    <form class="form">
-						<div class="form__section1">
-							<input type="text" class="form__input" placeholder="Surname and first name">
-						</div>
-						<div class="form__section1">
-							<input type="email" required="" class="form__input" placeholder="Email">
-						</div>
-						<textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Write your message here"></textarea>
-						<div class="form__section1">
-							<input type="submit" class="form__input" value="Send">
-						</div>
-					</form>
-                </section>
+        </section>
+        <section class="contact" id="contact">
+            <div class="redes" id="contact-redes">
+                <h2>Contact me!</h2>
+                <div class="redes__iconos">
+                    <a href="https://www.linkedin.com/in/julian-appella-a284192a3" target="_BLANK"><img src="images/linke.png"></a>
+                    <a href="https://www.instagram.com/ap.julian_/" target="_BLANK"><img src="images/insta.png"></a>
+                    <a href="https://wa.me/5491144132895" target="_BLANK"><img src="images/whatsapp.png"></a>
+                    <a href="https://www.facebook.com/julian.appella.5/" target="_BLANK"><img src="images/face.png"></a>
+                </div>
             </div>
+            <form class="form" id="contact-form">
+                <div class="form__section1">
+                    <input type="text" class="form__input" placeholder="Surname and first name" id="name">
+                </div>
+                <div class="form__section1">
+                    <input type="email" required="" class="form__input" placeholder="Email" id="email">
+                </div>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Write your message here"></textarea>
+                <div class="form__section1">
+                    <input type="submit" class="form__input" value="Send" id="btn-enviar"> 
+                </div>
+            </form>
+        </section>
         </main>
         <footer>
-            <div class="footer-bottom">
+            <div class="footer-bottom" id="footer">
                 <p>Copyright &copy;2023. Designed by <span>Apx.Jul</span></p>
             </div>
         </footer>

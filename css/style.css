@@ -1,3 +1,4 @@
+/*Estilos generales*/
 *{
 	margin: 0;
 	padding: 0;
@@ -8,79 +9,71 @@ html{
     background-color: #000;
     scroll-behavior: smooth;
     user-select: none;
+    height: 100%;
 }
 
 a{
 	text-decoration:none;
 }
 
-body{
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    display: grid;
-	grid-template-rows:1fr 2.5fr 0.1fr;
-    grid-template-areas: 
-	"header"
-    "main"
-    "footer";
-    animation: scroll 120s linear infinite;
-    background: url("../images/fondo2.jpg"), #111111;
-    perspective-origin: 50% 50%;
+
+body {
+    margin: 0;
+    z-index: 1;
+    background-image: url("../images/fondo3.gif");
+    background-color: #111111; /* Color de fondo en caso de que la imagen no se cargue */
+    animation: scroll 120s linear infinite; /* Aplica la animación */
+    perspective-origin: 50% 50%; /* Este estilo puede no ser necesario para tu caso */
 }
 
-/*------------------------------HEADER------------------------------*/
-/*------------------------------------------------------------------*/
-
-header{
-    grid-area: header;
-    height: 100vh;
-    width: 100%;
+@keyframes scroll {
+    100%{
+     background-position:0px -2000px;
+   }
 }
 
-.nav1{
-    width: 100%;
+/*-------------------------------Rocket--------------------------------------*/
+.rocket {
+    display: block;
     position: fixed;
-    top: 0px;
-    z-index: 100;
-    background: rgba(48, 48, 48, 0.582);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5.3px);
-    -webkit-backdrop-filter: blur(5.3px);
-    display: grid;
-	grid-template-columns:0.5fr 1.5fr;
-	align-items: center;
-	grid-template-areas: 
-	"logo botones";
-    animation-duration: 3s;
-    animation-name: slidein;
+    bottom: 10px; /* Posición final en el borde inferior de la pantalla */
+    right: 10px; /* Margen del borde derecho */
+    width: 60px; /* Ajusta según el tamaño de tu cohete */
+    height: auto;
+    z-index: 5;
 }
 
-@keyframes slidein{
-    from {
-      margin-top: -50%;
-    }
-  
-    to {
-      margin-left: 0%;
-    }
-  }
+/*------------------------------Header---------------------------------------*/
 
-.logo{
-    width: 100%;
-    height: 100%;
+header {
     display: flex;
-    padding-left: 10%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-.logo img{
-	grid-area: logo;
-	width: 10%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    top: -100px; /* Inicialmente fuera de la vista */
+    width: 100%;
+    height: 65px;
+    background-color: rgba(48, 48, 48, 0.582);
+    box-shadow: 0 1px 10px #2695ff, 0 2px 30px #2695ff;
+    animation: slideDown 1.2s ease forwards;
 }
 
-.logo img{  
-    padding-top: 5%;
+@keyframes slideDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+header .logo img, header .menu-icon img {
+    padding: 10px;
+}
+
+header .logo img {
+    width: 50px; 
     animation-name: floating;
     animation-duration: 3s;
     animation-iteration-count: infinite;
@@ -88,35 +81,43 @@ header{
 }
 
 @keyframes floating {
-    0% {transform: translateY(0);}
-	50% {transform: translateY(-10px);}
-	100% {transform: translateY(0);}    
+    0% {transform: translateY(4px);}
+    50% {transform: translateY(-4px);}
+    100% {transform: translateY(4px);}    
 }
 
-.botones{
-    width: 100%;
-    height: 100%;
-	grid-area: botones;
-	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
-    align-items: center;
-    margin-right: 5%;
+header .menu-icon img {
+    width: 50px; 
 }
 
-.botones a{
-    position: relative;
-    margin-right: 5%;
-    padding: 1%;
-    letter-spacing: 3px;
+/*--------------------------Menu Original--------------------------------------*/
+
+.menu-original {
+    display: none;
+}
+
+.menu-original ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-original ul li {
+    margin: 0 15px; /* Espacio horizontal entre elementos del menú */
+}
+
+.menu-original ul li a {
+    text-decoration: none;
+    padding: 4px;
     color: #fff;
     font-family: calibri;
     text-align: center;
     transition: transform 0.8s;
-	letter-spacing: 2px;
+	letter-spacing: 4px;
 }
 
-.botones a:hover{
+.menu-original a:hover{
 	transform: scale(1.1);
 	color: #fff;
     border-radius: 6px;
@@ -124,36 +125,53 @@ header{
     box-shadow: 0 0 10px rgba(83,23,140,1), 0 0 40px rgba(83,23,140,1), 0 0 80px rgba(83,23,140,1);
 }
 
-.presentacion{
-    position: absolute;
-    z-index: 50;
+/*-------------------------Menu Desplegable--------------------------------*/
+
+.menu-desplegable{
+    position: fixed;
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa todo el alto */
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.46);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.3px);
+    -webkit-backdrop-filter: blur(5.3px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.menu-desplegable li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.menu-desplegable a {
+    padding: 10px;
     width: 100%;
-    height: 100%;
-    animation: scroll 120s linear infinite;
-    background: url("../images/fondo2.jpg"), #111111;
+    font-size: 150%;
+    color: #fff;
+    font-family: calibri;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(83,23,140,1);
+}
+
+/*-------------------------------Home--------------------------------------*/
+
+.presentation{
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 1000px;
-    perspective-origin: 50% 50%;
-}
-
-
-@keyframes scroll {
-    100%{
-     background-position:0px -3000px;
-   }
- }
- 
- @font-face {
-    font-family: 'neontubes';
-    src: url("../fonts/neontubes-webfont.eot") format("embedded-opentype"), url("../fonts/neontubes-webfont.woff2") format("woff2"), url("../fonts/neontubes-webfont.woff") format("woff"), url("../fonts/neontubes-webfont.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
 }
 
 .titulo {
-    height: 100%;
     width: 100%;
     font-family: "neontubes";
     display: flex;
@@ -161,10 +179,18 @@ header{
     justify-content: center;
 }
 
+@font-face {
+    font-family: 'neontubes';
+    src: url("../fonts/neontubes-webfont.eot") format("embedded-opentype"), url("../fonts/neontubes-webfont.woff2") format("woff2"), url("../fonts/neontubes-webfont.woff") format("woff"), url("../fonts/neontubes-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .titulo .primario {
-    padding-left: 7%;
-    width: 40%;
-    font-size: 8vw;
+    padding-left: 0%;
+    width: 100%;
+    font-size: 16vw;
+    text-align: center;
     color: #ffd9e2;
     text-shadow: 0 0 0 transparent, 0 0 10px rgba(83,23,140,1), 0 0 20px  rgba(83,23,140,1);
     -webkit-animation: blink 4s infinite alternate;
@@ -172,9 +198,10 @@ header{
 }
 
 .titulo .secundario {
-    padding-left: 7%;
-    width: 40%;
-    font-size: 5vw;
+    width: 100%;
+    padding-left: 0%;
+    font-size: 14vw;
+    text-align: center;
     color: #d4eaff;
     text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff;
     -webkit-animation: buzz 0.01s infinite alternate;
@@ -206,106 +233,63 @@ header{
 }
 
 .imagen-perfil{
+    display: none;
+}
+
+/*------------------------------About Me-------------------------------------*/
+
+.about-me{
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
     align-items: center;
-}
-
-.imagen-perfil img{
-    margin-right: 20%;
-    width: 60%;
-    filter: drop-shadow(3px 3px 5px #2695ff);
-    animation-duration: 5s;
-    animation-name: scale;
-}
-
-@keyframes scale{
-    from {
-      transform: scale(0.1);
-    }
-  
-    to {
-      transform: scale(1);
-    }
-}
-
-/*-------------------------------MAIN-------------------------------*/
-/*------------------------------------------------------------------*/
-
-main{
-    grid-area: main;
-    width: 100%;
-    height: 100%;
-}
-
-.contenedor{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-h3{
-    color: #fff;
-}
-
-/*---------------------------ABOUT ME--------------------------*/
-
-.contenedor__about-me{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    padding: 5% 2% 5% 2%;
+    z-index: 2;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(67, 20, 111, 0.7) 25%, rgba(83,26,138,0.7) 45%, rgba(83,23,140,0.7) 50%, rgba(83,26,138,0.7) 55%, rgba(67,20,111,0.7) 75%, rgba(0,0,0,0.3) 100%);
-} 
+}   
 
 .about-h3{
-    width: 75%;
+    width: 100%;
     height: 100%;
-    padding: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    transform: translateX(-90%); /* Empieza fuera de la pantalla a la izquierda */
+    opacity: 0; /* Comienza invisible */
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out; /* Suaviza la transición */
 }
 
-.about-h3 h3{
-    font-family: 'Rajdhani', sans-serif;
+.about-me-visible {
+    transform: translateX(0); /* Vuelve a su posición normal */
+    opacity: 1; /* Hace la sección completamente visible */
+}
+
+.about-me h3{
+    font-family: 'Josefin Sans', sans-serif;
     letter-spacing: 2px;
-    font-size: 90%;
+    font-size: 13px;
     overflow:auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: right;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgb(143, 143, 143);
 }
 
 .img-about{
-    width: 35%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    display: none;
 }
 
-.img-about img{
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px #000,6px 6px 10px #00000065;
-    border: #000 solid 3px;
-    border-radius: 10px;
-}
+/*--------------------------------SKILLS-----------------------------------*/
 
-/*----------------------------SKILLS---------------------------*/
-
-.contenedor__skills{
+.skills{
     width: 100%;
-    height: 70vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    scroll-margin-top: 15ex;
 }
 
 .cajitas-skills{
@@ -320,35 +304,36 @@ h3{
 }
 
 .barra{
-    width: 15%;
+    width: 13%;
     height: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 6%;
+    margin-right: 6%;
     border: 2px solid rgb(137, 40, 228);
     border-radius: 10px;
     background-color: #2695ff;
-    box-shadow: 0 0 10px rgb(137, 40, 228), 0 0 30px rgb(137, 40, 228), 0 0 40px rgb(137, 40, 228);
+    box-shadow: 0 0 5px rgb(137, 40, 228), 0 0 10px rgb(137, 40, 228), 0 0 15px rgb(137, 40, 228);
 }
 
 .cajitas-skills h2{
     letter-spacing: 5px;
     color: #fff;
-    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff;
+    text-shadow: 0 0 0 transparent, 0 0 5px #2695ff, 0 0 10px rgba(38, 149, 255, 0.5), 0 0 15px #2695ff;
 }
 
-.h3{
+.cajitas-skills h3{
     display: flex;
     flex-direction: column;
     width: 10%;
+    font-size: 14px;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #2695ff;
-    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 50px #2695ff;
+    color: #ffffff;
+    text-shadow: 0 0 0 transparent, 0 0 5px #2695ff, 0 0 10px rgba(38, 149, 255, 0.5), 0 0 15px #2695ff;
 }
   
 .cajitas-skills img{
-    height: 70%;
+    height: 60%;
     transition: transform 0.5s;
 }
 
@@ -356,128 +341,84 @@ h3{
 	transform: scale(1.3);
 }
 
+/*--------------------------------WORKS-----------------------------------*/
 
-/*----------------------------WORKS----------------------------*/
-
-.contenedor__works{
-    padding: 8% 3% 3% 3%;
+.works{
     width: 100%;
-    height: 80vh;
+    height: 120vh;
+    padding: 18% 3% 3% 3%;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(67, 20, 111, 0.7) 25%, rgba(83,26,138,0.7) 45%, rgba(83,23,140,0.7) 50%, rgba(83,26,138,0.7) 55%, rgba(67,20,111,0.7) 75%, rgba(0,0,0,0.3) 100%);
-    display: grid;
-    grid-template-rows:0.1fr 0.9fr;
-    grid-template-columns: 0.5fr 0.5fr;
-    grid-template-areas: 
-	"h3 balnco"
-    "cem construction";
-    scroll-margin-top: 10ex;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    scroll-margin-top: 5ex;
 }
 
 .works-h2{
-    grid-area: h3;
     width: 100%;
+    height: 10%;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     color: #fff;
     font-family: 'Rajdhani', sans-serif;
-    letter-spacing: 3px;
-}
-
-.works-cem1{
-    grid-area: cem;
-    width:100%; 
-    height:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    letter-spacing: 5px;
+    text-align: center;
+    font-weight: 900;
     filter: drop-shadow(3px 3px 5px #2695ff);
 }
 
-.imagen_fondo{
-    width:70%; height:70%;
-    background-image: url(../images/1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
-    position: relative;
-    border-radius: 10px;
-}
-
-.imagen_fondo .deroul_titre{
-    position: absolute;
-    text-transform: uppercase;
-    font-family: 'Rajdhani', sans-serif;
-    padding: 7px;
-    z-index: 1000;
-    top:60%;left:-80%;
-    color:#ffffff;
-    font-weight: 300;
-    font-size: 15px; width: 80%;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    transition: all 0.7s;
-    border-radius: 5px;
-}
-
-.imagen_fondo:hover .deroul_titre{
-    background-color:rgba(83,23,140,1); left:0px;
-}
-
-.imagen_fondo .deroul_soustitre{
-    position: absolute;
-    font-family: 'Rajdhani', sans-serif;
-    padding: 5px;
-    z-index: 1000;
-    top:60%;right:-85%;
-    margin-top: 25px;
-    color:#ffffff;
-    font-weight: 300;
-    font-size: 15px; width: 80%;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    transition: all 0.7s;
-}
-
-.imagen_fondo:hover .deroul_soustitre{
-    background-color:rgba(128, 35, 214, 0.712);right:0px;
-}
-
-.works-cem2{
-    grid-area: construction;
-    width:100%; 
-    height:100%;
+.works__projects{
+    width: 100%;
+    height: 90%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
+}
+
+.works__project{
+    width: 70%;
+    height: 25%; /* Alto de cada proyecto */
     filter: drop-shadow(3px 3px 5px #2695ff);
 }
-.imagen_fondo2{
-    width:70%; height:70%;
-    background-image: url(../images/tiendanube.PNG);
+
+/* Estilos comunes para imagen_fondo e imagen_fondo2 */
+.imagen_fondo, .imagen_fondo2, .imagen_fondo3 {
+    width: 100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: start;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
     padding: 3%;
 }
 
-.imagen_fondo2 .deroul_titre{
+/* Diferencias específicas */
+.imagen_fondo {
+    background-image: url(../images/1.jpg);
+}
+
+.imagen_fondo2 {
+    background-image: url(../images/tienda-nube.gif);
+}
+
+.imagen_fondo3{
+    background-image: url(../images/construction2.gif);
+    background-position: start;
+}
+
+/* Estilos comunes para titulo-1-proyect y titulo-2-proyect */
+.titulo-1-proyect, .titulo-2-proyect {
     position: absolute;
-    text-transform: uppercase;
     font-family: 'Rajdhani', sans-serif;
-    padding: 7px;
     z-index: 1000;
-    top:60%;left:-80%;
-    color:#ffffff;
+    color: #ffffff;
     font-weight: 300;
-    font-size: 13px; width: 80%;
+    width: 80%;
     -webkit-transition: all 0.7s;
     -moz-transition: all 0.7s;
     -ms-transition: all 0.7s;
@@ -485,65 +426,64 @@ h3{
     border-radius: 5px;
 }
 
-.imagen_fondo2:hover .deroul_titre{
-    background-color:rgba(83,23,140,1); left:0px;
-  
+/* Posicionamiento y tamaño específicos */
+.imagen_fondo .titulo-1-proyect, .imagen_fondo2 .titulo-1-proyect, .imagen_fondo3 .titulo-1-proyect {
+    text-transform: uppercase;
+    padding: 7px;
+    top: 60%; left: -80%;
+    font-size: 11px;
 }
 
-.imagen_fondo2 .deroul_soustitre
-{
-    position: absolute;
-    font-family: 'Rajdhani', sans-serif;
+.imagen_fondo:hover .titulo-1-proyect, .imagen_fondo2:hover .titulo-1-proyect, .imagen_fondo3:hover .titulo-1-proyect {
+    background-color: rgba(83,23,140,1); 
+    left: 0px;
+}
+
+.imagen_fondo .titulo-2-proyect, .imagen_fondo2 .titulo-2-proyect, .imagen_fondo3 .titulo-2-proyect {
     padding: 5px;
-    z-index: 1000;
-    top:60%;right:-85%;
+    top: 60%; right: -85%;
     margin-top: 25px;
-    color:#ffffff;
-    font-weight: 300;
-    font-size: 11px; width: 80%;
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    transition: all 0.7s;
+    font-size: 11px;
 }
 
-.imagen_fondo2:hover .deroul_soustitre{
-    background-color:rgba(128, 35, 214, 0.712);right:0px;
+.imagen_fondo:hover .titulo-2-proyect, .imagen_fondo2:hover .titulo-2-proyect, .imagen_fondo3:hover .titulo-2-proyect {
+    background-color: rgba(128, 35, 214, 0.712);
+    right: 0px;
 }
 
 /*---------------------------CONTACT---------------------------*/
 
-.contenedor__contact{
+.contact{
     width: 100%;
-    height: 60vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5%;
-}
-
-.redes{
-    width: 40%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5%;
+    scroll-margin-top: 5ex;
 }
 
-.redes__h2{
+.redes{
     width: 100%;
-    height: 20%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 2% 0% 2%;
+}
+
+.redes h2{
+    width: 100%;
+    height: 50%;
     color: #fff;
     font-family: 'Rajdhani', sans-serif;
     letter-spacing: 5px;
-    text-align: left;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    text-align: center;
     font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 .redes h2:hover{
@@ -552,11 +492,13 @@ h3{
 
 .redes__iconos{
     width: 100%;
-    height: 80%;
+    height: 50%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .redes a{
@@ -565,7 +507,7 @@ h3{
 }
 
 .redes img{
-    width: 50%;
+    width: 40%;
     transition: transform 0.5s;
 }
 
@@ -573,25 +515,25 @@ h3{
 	transform: scale(1.3);
 }
 
-
 .form{
-    width: 60%;
-    height: 100%;
+    width: 100%;
+    height: 70%;
     display: flex;
     flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
+    padding-top: 5%;
 }
 
 .form__section1{
 	height: 10%;
-	width: 50%;
+	width: 65%;
     padding: 1%;
     margin-top: 3%;
 }
 
 textarea{
-    width: 40%;
+    width: 55%;
     height: 30%;
     resize: none;
     background-color:rgba(0, 0, 0, 0.5);
@@ -642,10 +584,8 @@ textarea{
 }
 
 /*------------------------------FOOTER------------------------------*/
-/*------------------------------------------------------------------*/
 
 footer{
-    grid-area: footer;
     width: 100%;
     height: 10vh;
     font-family: 'Rajdhani', sans-serif;
@@ -679,360 +619,382 @@ footer{
     font-weight: 200;
 }
 
+
 /*--------------------------------Media queries--------------------------------*/
 /*-----------------------------------------------------------------------------*/
 
-/*----------------Pantalla 3000px----------------*/
-@media only screen and (max-width: 3000px){
-	.nav2, .secciones2{
-		display: none;
-	}
-
-    .nav-responsive__checkbox{
-		display: none;
-	}
+@media only screen and (min-width: 360px) {
+    /* Estilos para celulares 360x640px (pantalla de al menos 360px de ancho)*/
+    .about-me h3{
+        font-size: 15px;
+    }
 }
 
-/*----------------Pantalla 1441px----------------*/
-@media only screen and (max-width: 1441px){
+
+@media only screen and (min-width: 375px) {
+    /* Estilos para celulares 375x667px (pantalla de al menos 375px de ancho)*/
+}
+
+/* Media Queries para tablets y pantallas más grandes */
+@media only screen and (min-width: 768px) {
+    /* Estilos para tabletas 768x1024px (pantalla de al menos 768px de ancho)*/
+    header .logo img{
+        width: 60px;
+        padding: 12px 12px 12px 16px;
+    }
+
+    header .menu-icon img {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .menu-original {
+        display: block;
+    }
+
+    .about-me{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }    
+
+    .about-h3{
+        width: 100%;
+        height: 60%;
+        align-items: flex-start;
+    }
+
+    .about-me h3{
+        width: 100%;
+        font-size: 23px;
+    }
+
+    .img-about{
+        width: 100%;
+        height: 40%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(-100%); /* Empieza fuera de la pantalla a la izquierda */
+        opacity: 0; /* Comienza invisible */
+        filter: drop-shadow(3px 3px 5px #ffffff);
+        transition: transform 1.2s ease-out, opacity 0.8s ease-out; /* Suaviza la transición */
+    }
+
+    .about-me-visible-2 {
+        transform: translateX(0%); /* Vuelve a su posición normal */
+        opacity: 1; /* Hace la sección completamente visible */
+    }
+
+    .img-about img{
+        width: 60%;
+        border-radius: 5px;
+        border: #000 solid 1px;
+        border-radius: 10px;
+    }
+
+    .cajitas-skills h2{
+        font-size: 35px;
+    }
+
+    .cajitas-skills h3{
+        font-size: 25px;
+    }
+
+    .works{
+        height: 100vh;
+        padding: 7% 3% 3% 3%;
+    }
+
+    .works-h2{
+        align-items: flex-end;
+        font-size: 35px;
+    }
+
+    .works__projects{
+        height: 80%;
+    }
+
+    .works__project{
+        width: 60%;
+        height: 30%; /* Alto de cada proyecto */
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    /* Estilos para laptops y desktops pequeños (pantallas de al menos 1024px de ancho)*/
+    header .logo img{
+        width: 60px;
+        padding: 12px 12px 12px 16px;
+    }
+    
+    body {
+        animation: scroll 90s linear infinite; /* Aplica la animación */
+    }
+    
+    .rocket {
+        width: 100px;
+    }
+
     .titulo .primario {
+        padding-left: 7%;
+        width: 40%;
         font-size: 8vw;
     }
     
     .titulo .secundario {
-        font-size: 6vw;
+        padding-left: 7%;
+        width: 40%;
+        font-size: 5vw;
     }
 
-    .imagen-perfil img{
-        width: 65%;
-    }
-}
-
-/*----------------Pantalla 1024px----------------*/
-@media only screen and (max-width: 1025px){
-
-    .img-about{
-        padding: 5%;
-        width: 50%;
-    }
-
-    .imagen_fondo{
-        width:70%; height:60%;
-    }
-    
-
-    .imagen_fondo2{
-        width:70%; height:60%;
-    }
-    
-
-}
-
-
-/*----------------Pantalla 769px----------------*/
-@media only screen and (max-width: 769px){
-    .logo img{  
-        padding-top: 10%;
-    }
-
-    .imagen-perfil img{
-        width: 70%;
-    }
-
-    .contenedor__about-me{
-        width: 100%;
-        height: 80vh;
-        overflow: scroll;
-    }
-    .contenedor__about-me h3{
-        font-size: 80%;
-    }
-
-    .img-about img{
-        width: 80%;
-    }
-
-    .contenedor__works{
-        padding: 10% 2% 2% 2%;
-        height: 60vh;
-    }
-
-    .imagen_fondo{
-        width:60%; height:50%;
-    }
-
-    .imagen_fondo2{
-        width:60%; height:50%;
-    }
-}
-
-/*----------------Pantalla 500px----------------*/
-@media only screen and (max-width: 500px){
-    .botones a{
-    margin-right: 3%;
-    letter-spacing: 2px;
-    }
-}
-
-/*----------------Pantalla 425px----------------*/
-@media only screen and (max-width: 425px){
-    .nav1, .imagen-perfil{
-        display: none;
-    }
-
-    body{
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-rows:1fr 3fr 0.1fr;
-        grid-template-areas: 
-        "header"
-        "main"
-        "footer";
-    }
-    
-    header{
-        position: relative;
-        grid-area: header;
-        height: 100vh;
-        width: 100%;
-    }
-
-    .nav2{
-		height: 10%;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-areas: "logo icono";
-		align-items: center;
-		position: fixed;
-        top: 0px;
-        z-index: 100;
-        background: rgba(48, 48, 48, 0.582);
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        box-shadow: 0 1px 10px #2695ff, 0 2px 30px #2695ff;
-	}
-
-    .nav2__logo{
-        grid-area: logo;
-        padding-left: 10%;
-        padding-top: 3%;
-    }
-    
-    .nav2__logo img{
-        width: 15%;
-        padding-top: 3%;
-        animation-name: floating;
-        animation-duration: 3s;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-    }
-    
-    @keyframes floating {
-        0% {transform: translateY(0);}
-        50% {transform: translateY(-10px);}
-        100% {transform: translateY(0);}    
-    }
-    
-    .nav2__icono{
-        grid-area: icono;
-    }
-
-    .nav2__icono img{
-        width: 20%;
-        float: right;
-		margin-right: 10%;
-		border-radius: 10px;
-    }
-
-    .secciones2{
-        height: 100vh;
-        width: 100%;
-        z-index: 60;
-        position: fixed;
-        background: rgba(0, 0, 0, 0.46);
-        border-radius: 16px;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(5.3px);
-        -webkit-backdrop-filter: blur(5.3px);
-        border: 1px solid rgba(0, 0, 0, 0.16);
-        transform: translateX(-100%);
+    .imagen-perfil{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 5%;
-        border-right: 7px solid black;
-        border-left: 7px solid black;
-        border-bottom: 7px solid black;
-    }
-
-    .secciones2 a{
-		font-size: 150%;
-		color: #fff;
-		font-family: calibri;
-		font-weight: 900;
-		letter-spacing: 2px;
-		padding: 4% 0% 0% 1%;
-		margin-top: 5%;
-		text-shadow: 3px 3px 5px rgba(83,23,140,1);
-	}
-    
-    .nav-responsive__checkbox:checked + .secciones2{/*EL + FUNCIONA SOLO SI LA SEGUNDA CAJA
-		VA A CONTINUACION DE LA PRIMERA EN EL HTML*/
-		transform: translateX(0%);
-	}
-
-    .wrapper {
-        animation: scroll 200s linear infinite;
-    }
-    
-    .titulo {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-
-    .titulo .primario {
-        width: 100%;
-        padding-left: 0%;
-        font-size: 18vw;
-        text-align: center;
-    }
-
-    .titulo .secundario {
-        width: 100%;
-        padding-left: 0%;
-        font-size: 14vw;
-        text-align: center;
-    }
-
-    .contenedor__about-me{
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        flex-direction: column-reverse;
-        align-items: center;
-        padding: 5% 2% 5% 2%;
-        overflow: hidden;
-    }   
     
-    .contenedor__about-me h3{
-        width: 100%;
-        height: 95%;
-        font-family: calibri;
-        letter-spacing: 2px;
-        font-size: 70%;
-        overflow:auto;
-        text-align: center;
-        margin-top: 10%;
-        padding-top: 3%;
+    .imagen-perfil img{
+        margin-right: 20%;
+        width: 60%;
+        filter: drop-shadow(3px 3px 5px #2695ff);
+        transition: transform 1s; /* Duración de la transición */
+    }
+    
+    .imagen-perfil img:hover {
+        transform: rotateY(180deg); /* Rotación de 360 grados en el eje Y */
+    }
+    
+    @keyframes scale{
+        from {
+          transform: scale(0.1);
+        }
+      
+        to {
+          transform: scale(1);
+        }
+    }
+
+    /*------------------ABOUT ME------------------*/
+
+    .about-me{
+        flex-direction: row;
     }
 
     .about-h3{
-        width: 100%;
+        width: 60%;
         height: 100%;
-        padding: 10% 3% 3% 3%;
+        align-items: center;
+        justify-content: center;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .about-me h3{
+        width: 100%;
+        font-size: 17px;
+        text-align: right;
+    }
+
+    .img-about{
+        width: 40%;
+        height: 100%;
+        display: flex;
     }
     
-    .img-about{
+    .img-about img{
+        width: 80%;
+        border-radius: 10px;
+    }
+
+    /*------------------SKILLS------------------*/
+
+    .cajitas-skills{
         width: 100%;
-        height: 70%;
-        padding-bottom: 10%;
+        height: 10%;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-    }
-
-    .img-about img{
-        width: 65%;
-    }
-
-    .contenedor__skills{
-        height: 50vh;
-        font-size: 80%;
-        margin-bottom: 4%;
-        scroll-margin-top: 15ex;
+        align-items: center;
+        color: #fff;
+        font-family: 'Rajdhani', sans-serif;
+        margin-top: 2%;
     }
 
     .barra{
-        box-shadow: 0 0 5px rgb(137, 40, 228), 0 0 10px rgb(137, 40, 228), 0 0 15px rgb(137, 40, 228);
+        width: 15%;
+        height: 8%;
+        margin-left: 5%;
+        margin-right: 5%;
+        border: 2px solid rgb(137, 40, 228);
+        border-radius: 10px;
+        background-color: #2695ff;
+        box-shadow: 0 0 10px rgb(137, 40, 228), 0 0 30px rgb(137, 40, 228), 0 0 40px rgb(137, 40, 228);
     }
 
     .cajitas-skills h2{
-        text-shadow: 0 0 0 transparent, 0 0 5px #2695ff, 0 0 10px rgba(38, 149, 255, 0.5), 0 0 15px #2695ff;
+        font-size: 32px;
     }
-    
-    .h3{
-        text-shadow: 0 0 0 transparent, 0 0 5px #2695ff, 0 0 10px rgba(38, 149, 255, 0.5), 0 0 15px #2695ff;
+
+    .cajitas-skills h3{
+        font-size: 28px;
     }
-    .contenedor__works{
-        padding: 6% 2% 2% 2%;
-        width: 100%;
-        height: 80vh;
-        display: grid;
-        grid-template-rows:0.1fr 0.4fr 0.4fr;
-        grid-template-areas: 
-        "h3 h3"
-        "cem cem"
-        "construction construction";
-        scroll-margin-top: 12ex;
+
+    .cajitas-skills img{
+        height: 70%;
+        transition: transform 0.5s;
     }
-    
+
+    .cajitas-skills img:hover{
+        transform: scale(1.3);
+    }
+
+    /*------------------WORKS------------------*/
+
+    .works{
+        padding: 5% 1% 3% 1%;
+    }
+
     .works-h2{
-        justify-content: center;
-        letter-spacing: 5px;
-    }
-
-    .imagen_fondo{
-        width:50%; height:70%;
-    }
-
-    .imagen_fondo2{
-        width:50%; height:70%;
-        background-image: url(../images/tiendanube.PNG);
-    }
-  
-    .contenedor__contact{
         width: 100%;
-        height: 70vh;
+        height: 10%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        scroll-margin-top: 15ex;
+    }
+
+    .works-h2 h2{
+        color: #020000;
+        font-family: 'Rajdhani', sans-serif;
+        letter-spacing: 5px;
+        text-align: center;
+        font-weight: 900;
+    }
+
+    .works__projects{
+        align-items: center;
+    }
+
+    .works__project{
+        width: 45%;
+        height: 55%; /* Alto de cada proyecto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Estilos comunes para imagen_fondo e imagen_fondo2 */
+    .imagen_fondo, .imagen_fondo2, .imagen_fondo3 {
+        width: 80%;
+        height: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    /*------------------CONTACT------------------*/
+
+    .contact{
+        height: 80vh;
+        flex-direction: row;
     }
 
     .redes{
-        width: 100%;
-        height: 30%;
+        width: 50%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 5%;
+        padding: 2%;
     }
 
-    .redes__h2{
-        text-align: center;
-        justify-content: center;
+    .redes h2{
+        height: 50%;
+        font-size: 40px;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 7%;
+    }
+
+    .redes__iconos{
+        height: 50%;
+        align-items: flex-start;
     }
 
     .redes img{
-        width: 40%;
+        width: 50%;
     }
 
+    .redes img:hover{
+        transform: scale(1.3);
+    }
+
+
     .form{
-        width: 100%;
-        height: 70%;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
     }
 
     .form__section1{
-        width: 65%;
+        height: 10%;
+        width: 70%;
+        padding: 1%;
+        margin-top: 3%;
     }
 
     textarea{
-        width: 55%;
+        width: 60%;
+        height: 30%;
+        resize: none;
+        background-color:rgba(0, 0, 0, 0.5);
+        padding: 5%;
+        margin: 7% 2% 2% 2%;
+        color: #fff;
+    }
+
+}
+
+@media only screen and (min-width: 1440px) {
+    /* Reglas CSS para pantallas de al menos 1440px de ancho */
+    header{
+        height: 100px;
+    }
+
+    .rocket{
+        width: 120px;
+    }
+
+    header .logo img{
+        width: 70px;
+    }
+
+    .menu-original a{
+        font-size: 30px;
+    }
+
+    .about-me h3{
+        font-size: 25px;
+    }
+
+    .cajitas-skills h2{
+        font-size: 40px;
+    }
+
+    .cajitas-skills h3{
+        font-size: 35px;
     }
 }
