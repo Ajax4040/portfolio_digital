@@ -487,10 +487,6 @@ header .menu-icon img {
     align-items: flex-end;
 }
 
-.redes h2:hover{
-    letter-spacing: 7px;
-}
-
 .redes__iconos{
     width: 100%;
     height: 50%;
@@ -510,11 +506,7 @@ header .menu-icon img {
 .redes img{
     width: 40%;
     height: auto;
-    transition: transform 0.5s;
-}
-
-.redes img:hover{
-	transform: scale(1.3);
+    transition: transform 1s;
 }
 
 .form{
@@ -941,11 +933,6 @@ footer{
     .redes img{
         width: 50%;
     }
-
-    .redes img:hover{
-        transform: scale(1.3);
-    }
-
 
     .form{
         width: 50%;

@@ -10,8 +10,12 @@
         <meta name="description" content="Hola, soy Julian Appella, un desarrollador web en formación especializado en HTML, CSS y JavaScript. Descubre mis proyectos y habilidades en mi portafolio digital.">
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
+        <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
         <script defer src="js/index.js"></script>
         <script defer src="js/menuDesplegable.js"></script>
+        <script defer src="js/form.js"></script>
+        <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
     </head>
     <body>
         <img src="images/rocket.gif" alt="rocket" id="rocket" class="rocket"/>
@@ -136,24 +140,24 @@
             <div class="redes" id="contact-redes">
                 <h2>Contact me!</h2>
                 <div class="redes__iconos">
-                    <a href="https://www.linkedin.com/in/julian-appella-a284192a3" target="_BLANK"><img src="images/linke.png" alt="linkedin"></a>
-                    <a href="https://www.instagram.com/ap.julian_/" target="_BLANK"><img src="images/insta.png" alt="instagram"></a>
-                    <a href="https://wa.me/5491144132895" target="_BLANK"><img src="images/whatsapp.png" alt="whatsapp"></a>
-                    <a href="https://www.facebook.com/julian.appella.5/" target="_BLANK"><img src="images/face.png" alt="facebook"></a>
+                    <a href="https://www.linkedin.com/in/julian-appella-a284192a3" target="_BLANK" id="linkedin"><img src="images/linke.png" alt="linkedin"></a>
+                    <a href="https://www.instagram.com/ap.julian_/" target="_BLANK" id="insta"><img src="images/insta.png" alt="instagram"></a>
+                    <a href="https://wa.me/5491144132895" target="_BLANK" id="wsp"><img src="images/whatsapp.png" alt="whatsapp"></a>
+                    <a href="https://www.facebook.com/julian.appella.5/" target="_BLANK" id="fb"><img src="images/face.png" alt="facebook"></a>
                 </div>
             </div>
             <form class="form" id="contact-form">
                 <div class="form__section1">
-                    <input type="text" class="form__input" placeholder="Surname and first name" id="name">
+                    <input type="text" class="form__input" placeholder="Surname and first name" name="user_name" id="name" required>
                 </div>
                 <div class="form__section1">
-                    <input type="email" required="" class="form__input" placeholder="Email" id="email">
+                    <input type="email" class="form__input" placeholder="Email" name="user_email" id="email" required>
                 </div>
-                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Write your message here"></textarea>
+                <textarea id="mensaje" cols="30" rows="10" placeholder="Write your message here" name="message" required></textarea>
                 <div class="form__section1">
-                    <input type="submit" class="form__input" value="Send" id="btn-enviar"> 
+                    <input type="submit" class="form__input" value="Send" id="btn-enviar">
                 </div>
-            </form>
+            </form>            
         </section>
         </main>
         <footer>
