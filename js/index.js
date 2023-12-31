@@ -16,36 +16,33 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(aboutMeSection);
 
-//Animacion para aparecer el cohete al entrar a la pagina---------------------
+//---------------------------------------------------------------------------
+//Animacion inicial para el launcher
 const rocket = document.getElementById('rocket');
+const dialog = document.getElementById('dialog-box');
 
-// Aplica la animación inicial de entrada
+// Inicialmente, coloca tanto el rocket como el dialog-box fuera de vista
 rocket.style.transform = 'translateY(120%)';
+dialog.style.transform = 'translateY(250%)';
+
+// Aplica la animación inicial de entrada al cohete
 setTimeout(() => {
-    rocket.style.transition = 'transform 5s ease';
+    rocket.style.transition = 'transform 7s ease';
     rocket.style.transform = 'translateY(0)';
 }, 0);
 
-// Elimina la animación inicial y comienza la animación de pulsación
+// Espera a que la animación del cohete termine para iniciar la del cuadro de diálogo
 setTimeout(() => {
-    // Restablece los estilos de transición para permitir el hover
-    rocket.style.transition = '';
-    rocket.style.transform = '';
+    dialog.style.transition = 'transform 2s ease'; // Duración de transición más corta para dialog-box
+    dialog.style.transform = 'translateY(0)';
+    // Agrega la animación floating2 después de que la animación de entrada termine
+    setTimeout(() => {
+        dialog.classList.add('floating-animation');
+    }, 2000); // Ajusta este tiempo al tiempo de duración de la animación de entrada del dialog
+}, 7000); // Ajusta este tiempo al tiempo de duración de la animación de entrada del rocket
 
-    // Inicia la animación de pulsación
-    setInterval(() => {
-        rocket.style.transition = 'transform 0.2s ease';
-        rocket.style.transform = 'scale(1.1)';
-
-        setTimeout(() => {
-            rocket.style.transform = 'scale(1)';
-        }, 200); // Duración de la primera parte de la pulsación
-
-    }, 5000); // Repite cada 5 segundos
-}, 5000); // Comienza después de que la animación inicial termine
-
-
-//Animación para las imagenes de las redes en la seccion contact---------------------
+//----------------------------------------------------------------------------
+//Animación para las imagenes de las redes en la seccion "contact"
 const linkedin = document.querySelector('#linkedin');
 const insta = document.querySelector('#insta');
 const wsp = document.querySelector('#wsp');

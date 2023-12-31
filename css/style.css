@@ -32,15 +32,60 @@ body {
    }
 }
 
-/*-------------------------------Rocket--------------------------------------*/
-.rocket {
-    display: block;
+/*-----------------------------Dialog Box-------------------------------------*/
+.launcher {
     position: fixed;
-    bottom: 10px; /* Posición final en el borde inferior de la pantalla */
-    right: 10px; /* Margen del borde derecho */
-    width: 60px; /* Ajusta según el tamaño de tu cohete */
-    height: auto;
+    bottom: 40px;
+    right: 23px;
+    width: 10%;
+    height: 15%;
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dialog-box {
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.floating-animation {
+    animation-name: floating2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes floating2 {
+    0% {transform: translateY(2px);}
+    50% {transform: translateY(-2px);}
+    100% {transform: translateY(2px);}    
+}
+
+.launcher p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10px;
+    color: #fff;
+    text-shadow: 0 0 0 transparent, 0 0 5px #2695ff, 0 0 10px rgba(38, 149, 255, 0.5), 0 0 15px #2695ff;
+}
+
+.launcher .arrow{
+    width: 60%;
+    opacity: 0.8;
+    height: auto;
+}
+
+.launcher .rocket {
+    width: 70px; /* Ajusta según el tamaño de tu cohete */
+    height: auto;
 }
 
 /*------------------------------Header---------------------------------------*/
