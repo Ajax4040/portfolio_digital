@@ -783,6 +783,11 @@ footer{
         animation: scroll 90s linear infinite; /* Aplica la animación */
     }
     
+    .dialog-box {
+        width:80%;
+        height:80%;
+    }
+
     .launcher p {
         font-size: 15px;
     }
