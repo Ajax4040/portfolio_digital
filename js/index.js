@@ -23,7 +23,7 @@ const dialog = document.getElementById('dialog-box');
 
 // Inicialmente, coloca tanto el rocket como el dialog-box fuera de vista
 rocket.style.transform = 'translateY(120%)';
-dialog.style.transform = 'translateY(250%)';
+dialog.style.transform = 'translateY(300%)';
 
 // Aplica la animación inicial de entrada al cohete
 setTimeout(() => {

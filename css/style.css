@@ -783,8 +783,18 @@ footer{
         animation: scroll 90s linear infinite; /* Aplica la animación */
     }
     
-    .rocket {
-        width: 100px;
+    .launcher p {
+        font-size: 15px;
+    }
+    
+    .launcher .arrow{
+        width: 30%;
+        height: auto;
+    }
+
+    .launcher .rocket {
+        width: 100px; /* Ajusta según el tamaño de tu cohete */
+        height: auto;
     }
 
     .titulo .primario {
