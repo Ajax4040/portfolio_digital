@@ -237,6 +237,7 @@ header .menu-icon img {
     padding-left: 0%;
     width: 100%;
     font-size: 16vw;
+    font-weight: normal;
     text-align: center;
     color: #ffd9e2;
     text-shadow: 0 0 0 transparent, 0 0 10px rgba(83,23,140,1), 0 0 20px  rgba(83,23,140,1);
@@ -248,6 +249,7 @@ header .menu-icon img {
     width: 100%;
     padding-left: 0%;
     font-size: 14vw;
+    font-weight: normal;
     text-align: center;
     color: #d4eaff;
     text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff;
