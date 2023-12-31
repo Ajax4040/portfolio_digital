@@ -26,28 +26,6 @@ body {
     perspective-origin: 50% 50%; /* Este estilo puede no ser necesario para tu caso */
 }
 
-.background-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1; /* Asegúrate de que esté detrás de todo el contenido */
-    background-size: cover;
-    animation: zoomInOut 120s linear infinite;
-}
-
-@keyframes zoomInOut {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
 @keyframes scroll {
     100%{
      background-position:0px -2000px;
@@ -834,7 +812,7 @@ footer{
         padding-left: 7%;
         width: 40%;
         font-size: 5vw;
-        text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff
+        text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff;
     }
 
     .imagen-perfil{
