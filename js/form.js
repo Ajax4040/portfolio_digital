@@ -1,13 +1,31 @@
-emailjs.init("ZJRc9J7rmSE8ay2DX"); // Reemplaza con tu User ID de EmailJS
+emailjs.init("ZJRc9J7rmSE8ay2DX"); // Tu User ID de EmailJS
 
 const form = document.getElementById('contact-form');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Cambia 'tu_service_id' y 'tu_template_id' con los IDs correspondientes de EmailJS
+    // Muestra el SweetAlert con el temporizador
+    Swal.fire({
+        title: "Aguarde un momento...",
+        html: "Enviando mensaje...",
+        timer: 20000, // Aumenta el tiempo si es necesario
+        timerProgressBar: true,
+        didOpen: () => {
+            Swal.showLoading();
+        },
+        willClose: () => {
+            // Lógica adicional si es necesaria al cerrar
+        }
+    });
+
+    // Envía el formulario con EmailJS
     emailjs.sendForm('service_0wnbo8w', 'template_5x14fot', this)
         .then(function() {
+            // Cuando el mensaje se ha enviado correctamente, resetea el formulario
+            form.reset();
+
+            // Cierra el SweetAlert actual y muestra el mensaje de éxito
             Swal.fire({
                 title: "Gracias por tu mensaje!",
                 width: 600,
@@ -15,15 +33,13 @@ form.addEventListener('submit', function(event) {
                 color: "#fff",
                 background: "#fff url(images/espacio2.jpg)",
                 backdrop: `
-                  rgba(83,26,138,0.3)
-                  url("images/chuck.gif")
-                  center bottom
-                  no-repeat
+                    rgba(83,26,138,0.3)
+                    url("images/chuck.gif")
+                    center bottom
+                    no-repeat
                 `
-              });
-            form.reset(); // Opcional: resetear el formulario después del envío
+            });
         }, function(error) {
-            alert('Error al enviar el mensaje: ' + JSON.stringify(error));
+            Swal.fire('Error', 'Error al enviar el mensaje: ' + JSON.stringify(error), 'error');
         });
 });
-
