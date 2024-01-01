@@ -83,12 +83,12 @@ body {
     height: auto;
 }
 
-.launcher .rocket {
-    width: 70px; /* Ajusta según el tamaño de tu cohete */
+#rocket {
+    width: 35px; /* Ajusta según el tamaño de tu cohete */
     height: auto;
 }
 
-.launcher .rocket:hover {
+#rocket:hover {
     transform: scale(1.05); /* Rotación de 360 grados en el eje Y */
     cursor: pointer;
 }
@@ -680,16 +680,8 @@ footer{
     font-weight: 200;
 }
 
-/*-----------------------------------Pregame-------------------------------*/
-.pregame{
-    display: none;
-}
-
-#countdown{
-    display: none;
-}
-
-.closeGame{
+/*-----------------------------------preGame-------------------------------*/
+.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3{
     display: none;
 }
 
@@ -711,6 +703,10 @@ footer{
 /* Media Queries para tablets y pantallas más grandes */
 @media only screen and (min-width: 768px) {
     /* Estilos para tabletas 768x1024px (pantalla de al menos 768px de ancho)*/
+    #rocket{
+        width: 45px; /* Ajusta según el tamaño de tu cohete */
+    }
+
     header .logo img{
         width: 60px;
         padding: 12px 12px 12px 16px;
@@ -811,6 +807,10 @@ footer{
     body {
         animation: scroll 90s linear infinite; /* Aplica la animación */
     }
+
+    .launcher{
+        right: 5px;
+    }
     
     .dialog-box {
         width:80%;
@@ -823,11 +823,6 @@ footer{
     
     .launcher .arrow{
         width: 30%;
-        height: auto;
-    }
-
-    .launcher .rocket {
-        width: 100px; /* Ajusta según el tamaño de tu cohete */
         height: auto;
     }
 
@@ -1050,9 +1045,9 @@ footer{
         color: #fff;
     }
 
-    /*------------------PREGAME------------------*/
+    /*------------------preGame------------------*/
 
-    .pregame{
+    .preGame{
         width: 100%;
         height: 100vh;
         position: fixed;
@@ -1064,7 +1059,7 @@ footer{
         align-items:center;
     }
     
-    .pregame__container{
+    .preGame__container{
         width: 50%;
         height: 50%;
         display: flex;
@@ -1075,7 +1070,7 @@ footer{
         border: double 4px #fff;
     }
     
-    .pregame__container h1{
+    .preGame__container h1{
         width: 100%;
         height: 30%;
         display: flex;
@@ -1089,7 +1084,7 @@ footer{
         filter: drop-shadow(3px 3px 5px #2695ff);
     }
 
-    .pregame__instructions{
+    .preGame__instructions{
         width: 100%;
         height: 50%;
         padding-left: 5%;
@@ -1100,7 +1095,7 @@ footer{
         align-items:center;
     }
     
-    .pregame__container h2{
+    .preGame__container h2{
         width: 100%;
         height: 20%;
         color: #fff;
@@ -1111,7 +1106,7 @@ footer{
         filter: drop-shadow(3px 3px 5px rgb(137, 40, 228));
     }
     
-    .pregame__container p{
+    .preGame__container p{
         width: 100%;
         height: 20%;
         padding-top: 5%;
@@ -1122,7 +1117,7 @@ footer{
         font-weight: 900;
     }
 
-    .pregame__buttons{
+    .preGame__buttons{
         width: 100%;
         height: 20%;
         display: flex;
@@ -1131,7 +1126,7 @@ footer{
         align-items:flex-start;
     }
 
-    .pregame__container button{
+    .preGame__container button{
         width: 20%;
         height: 45%;
         background-color: rgba(83,23,140,1);
@@ -1144,7 +1139,7 @@ footer{
         cursor: pointer;
     }
 
-    .pregame__container button:hover{
+    .preGame__container button:hover{
         background-color: rgba(83,23,140,1);
         box-shadow: 0 0 10px rgba(83,23,140,1), 0 0 40px rgba(83,23,140,1), 0 0 80px rgba(83,23,140,1);
         border-radius: 6px;
@@ -1163,7 +1158,7 @@ footer{
     }
 
     #closeGame{
-        width: 5%;
+        width: 4%;
         height: auto;
         position: fixed;
         top: 3%;
@@ -1178,6 +1173,33 @@ footer{
 
     #closeGame:hover{
         transform: scale(1.1);
+    }
+
+    #rocket2{
+        width: 50px; 
+        height: auto;
+        position: fixed;
+        bottom: 3%;
+        right: 5%;
+        display: none;
+    }
+
+    #asteroid1, #asteroid2{
+        display: none;
+        width: 60px; /* Ajusta el tamaño según sea necesario */
+        height: auto;
+        position: fixed;
+        top: -10%;
+        left: 5%;
+    }
+
+    #asteroid3{
+        display: none;
+        width: 90px; /* Ajusta el tamaño según sea necesario */
+        height: auto;
+        position: fixed;
+        top: -15%;
+        right: 5%;
     }
 }
 
