@@ -22,14 +22,18 @@ const rocket = document.getElementById('rocket');
 const dialog = document.getElementById('dialog-box');
 
 // Inicialmente, coloca tanto el rocket como el dialog-box fuera de vista
-rocket.style.transform = 'translateY(120%)';
+rocket.style.transform = 'translateY(130%)';
 dialog.style.transform = 'translateY(300%)';
 
 // Aplica la animación inicial de entrada al cohete
 setTimeout(() => {
-    rocket.style.transition = 'transform 7s ease';
+    rocket.style.transition = 'transform 6s ease';
     rocket.style.transform = 'translateY(0)';
 }, 1000);
+
+setTimeout(() => {
+    rocket.removeAttribute('style');
+}, 7000);
 
 // Espera a que la animación del cohete termine para iniciar la del cuadro de diálogo
 setTimeout(() => {
@@ -39,7 +43,7 @@ setTimeout(() => {
     setTimeout(() => {
         dialog.classList.add('floating-animation');
     }, 2000); // Ajusta este tiempo al tiempo de duración de la animación de entrada del dialog
-}, 8000); // Ajusta este tiempo al tiempo de duración de la animación de entrada del rocket
+}, 7000); // Ajusta este tiempo al tiempo de duración de la animación de entrada del rocket
 
 //----------------------------------------------------------------------------
 //Animación para las imagenes de las redes en la seccion "contact"

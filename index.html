@@ -16,6 +16,7 @@
         <script defer src="js/index.js"></script>
         <script defer src="js/menuDesplegable.js"></script>
         <script defer src="js/form.js"></script>
+        <script defer src="js/game.js"></script>
         <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5FH24W1K1"></script>
         <script defer src="js/google-analytics.js"></script>
@@ -28,7 +29,20 @@
             </div>
             <img src="images/rocket.gif" alt="rocket" id="rocket" class="rocket"/>
         </div>
-        <header>
+        <div class="pregame" id="pregame">
+            <div class="pregame__container">
+                <h1>Space Destroyer</h1>
+                <div class="pregame__instructions">
+                    <h2>Instructions</h2>
+                    <p>Use the arrow keys on the keyboard to move the ship from left to right.</p>
+                </div>
+                <div class="pregame__buttons">
+                    <button id="start">Start</button>
+                    <button id="exit">Exit</button>
+                </div>
+            </div>
+        </div>
+        <header id="header">
             <div class="logo">
                 <a href="index.html"><img src="images/logox2.ico" alt="Logo" /></a>
             </div>
@@ -54,7 +68,7 @@
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
-        <main>
+        <main id="main" class="main">
             <section class="presentation" id="home">
                 <div class="titulo">
                     <h1 class="primario">APPELLA</h1>
@@ -169,10 +183,12 @@
             </form>            
         </section>
         </main>
-        <footer>
+        <footer id="footer">
             <div class="footer-bottom" id="footer">
                 <p>Copyright &copy;2023. Designed by <span>Apx.Jul</span></p>
             </div>
         </footer>
+        <div id="countdown" class="countdown"></div>
+        <img src="images/cerrar1.png" alt="close" id="closeGame" class="closeGame"/>
     </body>
 </html>
