@@ -32,7 +32,9 @@ document.getElementById('start').addEventListener('click', function() {
 });
 
 let ultimoIncrementoVelocidad;
-const intervaloIncremento = 30000; // 30 segundos en milisegundos
+const intervaloIncremento = 20000; // 30 segundos en milisegundos
+let conteoIncrementos = 0;
+const maxIncrementos = 6; // Límite de incrementos
 
 // Configuración inicial del juego
 function configurarJuego() {
@@ -77,13 +79,22 @@ function moverAsteroides() {
     let colision = false;
 
     const tiempoActual = Date.now();
-    if (tiempoActual - ultimoIncrementoVelocidad > intervaloIncremento) {
-        console.log('Incrementando velocidad');
+    if (tiempoActual - ultimoIncrementoVelocidad > intervaloIncremento && conteoIncrementos < maxIncrementos) {
         asteroides.forEach(asteroide => {
             asteroide.velocidad += 1; // Incrementa la velocidad
         });
-        document.body.style.animation = "scroll 20s linear infinite";
+        if (conteoIncrementos == 0) {
+            document.body.style.animation = "scroll 15s linear infinite";
+        }
+        if (conteoIncrementos == 1) {
+            document.body.style.animation = "scroll 10s linear infinite";
+        }
+        if (conteoIncrementos == 2) {
+            document.body.style.animation = "scroll 7s linear infinite";
+        }
         ultimoIncrementoVelocidad = tiempoActual; // Actualiza el momento del último incremento
+        conteoIncrementos++;
+        console.log('Incrementando velocidad: ' + conteoIncrementos); 
     }
 
     asteroides.forEach(asteroide => {
