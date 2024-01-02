@@ -17,19 +17,19 @@ a{
 }
 
 
+@keyframes scroll {
+    100% {
+        background-position: 0px 2000px; /* Mueve la imagen hacia arriba */
+    }
+}
+
 body {
     margin: 0;
     z-index: 1;
     background-image: url("../images/fondo3.gif");
     background-color: #111111; /* Color de fondo en caso de que la imagen no se cargue */
     animation: scroll 120s linear infinite; /* Aplica la animación */
-    perspective-origin: 50% 50%; /* Este estilo puede no ser necesario para tu caso */
-}
-
-@keyframes scroll {
-    100%{
-     background-position:0px -2000px;
-   }
+    perspective-origin: 50% 50%;
 }
 
 /*-----------------------------Dialog Box-------------------------------------*/
