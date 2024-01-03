@@ -89,3 +89,13 @@ startRotationSequence();
 // Repite la secuencia cada 3 segundos más la duración total de la animación
 setInterval(startRotationSequence, 3000 + (200 * 3) + 1000); // 1000 ms adicionales para la animación
 
+//Llamado a la funcion crearFooter
+crearFooter();
+//Funcion crear un parrafo con el año actual en el footer
+function crearFooter() {
+    const añoActual = new Date().getFullYear();
+    const footer = document.querySelector('.footer');
+    const parrafo = document.createElement('p');
+    parrafo.textContent = `Copyright ${añoActual}. Designed by Apx.Jul`;
+    footer.appendChild(parrafo);
+}

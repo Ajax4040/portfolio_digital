@@ -455,7 +455,6 @@ header .menu-icon img {
     height: 100%;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
 }
 
 /* Diferencias específicas */
@@ -494,7 +493,7 @@ header .menu-icon img {
     text-transform: uppercase;
     padding: 7px;
     top: 60%; left: -80%;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .imagen_fondo:hover .titulo-1-proyect, .imagen_fondo2:hover .titulo-1-proyect, .imagen_fondo3:hover .titulo-1-proyect {
@@ -646,39 +645,17 @@ input::placeholder, textarea::placeholder {
 
 /*------------------------------FOOTER------------------------------*/
 
-footer{
-    width: 100%;
-    height: 10vh;
-    font-family: 'Rajdhani', sans-serif;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-bottom{
-    width: 100%;
-    height: 80%;
-    padding: 1%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.footer-bottom p{
-    width: 100%;
-    font-size: 14px;
-    word-spacing: 2px;
-    text-transform: capitalize;
+.footer {
+    background-color: #0000004f;
     color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    font-family: 'Rajdhani', sans-serif;
+    height: 8vh;
+    box-shadow: 0 1px 10px #2695ff, 0 2px 30px #2695ff;
 }
 
-.footer-bottom span{
-    text-transform: uppercase;
-    opacity: .8;
-    font-weight: 200;
-}
 
 /*-----------------------------------preGame-------------------------------*/
 .preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3{
@@ -982,7 +959,6 @@ footer{
         background-size: cover;
         overflow: hidden;
         position: relative;
-        border-radius: 10px;
     }
 
     /*------------------CONTACT------------------*/
@@ -1200,6 +1176,10 @@ footer{
         position: fixed;
         top: -15%;
         right: 5%;
+    }
+
+    .footer {
+        font-size: 15px;
     }
 }
 

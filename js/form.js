@@ -9,6 +9,8 @@ form.addEventListener('submit', function(event) {
     Swal.fire({
         title: "Aguarde un momento...",
         html: "Enviando mensaje...",
+        background: "rgba(83,26,138,1)",
+        color: "#fff",
         timer: 20000, // Aumenta el tiempo si es necesario
         timerProgressBar: true,
         didOpen: () => {
@@ -31,7 +33,7 @@ form.addEventListener('submit', function(event) {
                 width: 600,
                 padding: "3em",
                 color: "#fff",
-                background: "#fff url(images/espacio2.jpg)",
+                background: "rgba(83,26,138,0.3) url(images/espacio2.jpg)",
                 backdrop: `
                     rgba(83,26,138,0.3)
                     url("images/chuck.gif")

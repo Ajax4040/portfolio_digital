@@ -7,7 +7,7 @@ document.getElementById('rocket').addEventListener('click', function() {
             width: 400,
             padding: "1em",
             color: "#fff",
-            background: "#fff url(images/espacio2.jpg)",
+            background: "rgba(83,26,138,0.3) url(images/espacio2.jpg)",
             backdrop: `rgba(83,26,138,0.3)`
         });
         //Se oculta el launcher ya que no se puede jugar en movil
