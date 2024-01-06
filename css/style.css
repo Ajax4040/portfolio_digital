@@ -658,7 +658,7 @@ input::placeholder, textarea::placeholder {
 
 
 /*-----------------------------------preGame-------------------------------*/
-.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3{
+.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter{
     display: none;
 }
 
@@ -1145,6 +1145,22 @@ input::placeholder, textarea::placeholder {
         align-items:center;
         transition: transform 0.5s;
         cursor: pointer;
+    }
+
+    #counter{
+        width: 10%;
+        height: 7%;
+        color: #fff;
+        font-family: consolas;
+        background-color: rgba(83,23,140,0.8);
+        border-radius: 2px;
+        position: fixed;
+        top: 3%;
+        right: 2%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
     }
 
     #closeGame:hover{

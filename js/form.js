@@ -7,8 +7,8 @@ form.addEventListener('submit', function(event) {
 
     // Muestra el SweetAlert con el temporizador
     Swal.fire({
-        title: "Aguarde un momento...",
-        html: "Enviando mensaje...",
+        title: "Wait a moment...",
+        html: "Sending message...",
         background: "rgba(83,26,138,1)",
         color: "#fff",
         timer: 20000, // Aumenta el tiempo si es necesario
@@ -29,7 +29,7 @@ form.addEventListener('submit', function(event) {
 
             // Cierra el SweetAlert actual y muestra el mensaje de éxito
             Swal.fire({
-                title: "Gracias por tu mensaje!",
+                title: "Thank you for your message!",
                 width: 600,
                 padding: "3em",
                 color: "#fff",

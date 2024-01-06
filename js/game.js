@@ -33,8 +33,11 @@ document.getElementById('start').addEventListener('click', function() {
 
 let ultimoIncrementoVelocidad;
 const intervaloIncremento = 20000; // 30 segundos en milisegundos
+let ultimoIncrementoContador;
+const rangoContador = 500;
+let puntos = 0;
 let conteoIncrementos = 0;
-const maxIncrementos = 6; // Límite de incrementos
+const maxIncrementos = 7; // Límite de incrementos
 
 // Configuración inicial del juego
 function configurarJuego() {
@@ -44,7 +47,7 @@ function configurarJuego() {
     document.getElementById("header").style.animation = "slideUp 1.5s ease";
     document.body.style.height = "100vh";
     document.body.style.animation = "scroll 30s linear infinite";
-    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3", "closeGame"]);
+    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3", "closeGame", "counter"]);
 }
 
 // Conteo regresivo
@@ -57,6 +60,7 @@ function iniciarConteo() {
             inicioJuego = Date.now();
             juegoActivo = true;
             ultimoIncrementoVelocidad = Date.now();
+            ultimoIncrementoContador = Date.now();
             requestAnimationFrame(moverYDetectarColision);
             activarMovimientoNave();
         } else {
@@ -75,10 +79,13 @@ const asteroides = [
 ];
 
 function moverAsteroides() {
+    const divContador = document.getElementById('counter');
     const rocketRect = document.getElementById('rocket2').getBoundingClientRect();
     let colision = false;
 
     const tiempoActual = Date.now();
+    const tiempoActualContador = Date.now();
+
     if (tiempoActual - ultimoIncrementoVelocidad > intervaloIncremento && conteoIncrementos < maxIncrementos) {
         asteroides.forEach(asteroide => {
             asteroide.velocidad += 1; // Incrementa la velocidad
@@ -95,6 +102,16 @@ function moverAsteroides() {
         ultimoIncrementoVelocidad = tiempoActual; // Actualiza el momento del último incremento
         conteoIncrementos++;
         console.log('Incrementando velocidad: ' + conteoIncrementos); 
+    }
+
+    //Agregar un contador de puntos en el elemnto del dom con id "counter"
+    if (tiempoActualContador - ultimoIncrementoContador > rangoContador) {
+        puntos += 1; // Incrementan los puntos
+        // Formatear los puntos para que siempre tengan 5 dígitos, rellenando con ceros a la izquierda
+        let puntosFormateados = puntos.toString().padStart(6, '0');
+        //Poner los puntos en el elemento p del dom con id "counter"
+        divContador.innerHTML = puntosFormateados;
+        ultimoIncrementoContador = tiempoActualContador; // Actualiza el momento del último incremento
     }
 
     asteroides.forEach(asteroide => {
