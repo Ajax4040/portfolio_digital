@@ -1147,6 +1147,20 @@ input::placeholder, textarea::placeholder {
         cursor: pointer;
     }
 
+    #pauseMusic{
+        width: 4%;
+        height: auto;
+        position: fixed;
+        top: 3%;
+        left: 7%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        transition: transform 0.5s;
+        cursor: pointer;
+    }
+
     #counter{
         width: 10%;
         height: 7%;
@@ -1163,7 +1177,7 @@ input::placeholder, textarea::placeholder {
         align-items:center;
     }
 
-    #closeGame:hover{
+    #closeGame:hover, #pauseMusic:hover{
         transform: scale(1.1);
     }
 

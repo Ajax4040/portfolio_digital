@@ -32,9 +32,9 @@ document.getElementById('start').addEventListener('click', function() {
 });
 
 let ultimoIncrementoVelocidad;
-const intervaloIncremento = 20000; // 30 segundos en milisegundos
+const intervaloIncremento = 60000; // 60 segundo
 let ultimoIncrementoContador;
-const rangoContador = 500;
+const rangoContador = 400;
 let puntos = 0;
 let conteoIncrementos = 0;
 const maxIncrementos = 7; // Límite de incrementos
@@ -47,7 +47,7 @@ function configurarJuego() {
     document.getElementById("header").style.animation = "slideUp 1.5s ease";
     document.body.style.height = "100vh";
     document.body.style.animation = "scroll 30s linear infinite";
-    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3", "closeGame", "counter"]);
+    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3", "closeGame", "counter", "pauseMusic"]);
 }
 
 // Conteo regresivo
@@ -61,6 +61,7 @@ function iniciarConteo() {
             juegoActivo = true;
             ultimoIncrementoVelocidad = Date.now();
             ultimoIncrementoContador = Date.now();
+            activarAudio();
             requestAnimationFrame(moverYDetectarColision);
             activarMovimientoNave();
         } else {
@@ -134,6 +135,7 @@ function moverAsteroides() {
     if (colision) {
         juegoActivo = false;
         document.body.style.animation = "none";
+        desactivarAudio();
         alert("¡Colisión! Juego terminado.");
     } else if (juegoActivo) {
         requestAnimationFrame(moverAsteroides);
@@ -208,9 +210,59 @@ function activarMovimientoNave() {
 }
 //--------------------------------------------------------------------------
 
-//Funcion para cerrar el juego------------------------------------------------
+//Funcion para cerrar el juego
 document.getElementById('closeGame').addEventListener('click', function() {
     juegoActivo = false; // Indica que el juego ya no está activo
+    desactivarAudio();
     location.reload();//Recargar la pagina original
 });
+//--------------------------------------------------------------------------
+
+//Funciones para la musica
+function activarAudio() {
+    console.log("Se activa audio.");
+    let audio1 = document.getElementById('music');
+    let audio2 = document.getElementById('music2');
+
+    if (audio1.ended) {
+        // Si el primer audio ya terminó, reproducir el segundo audio
+        audio2.volume = 0.2;
+        audio2.play();
+    } else {
+        // Si no, reproducir el primer audio
+        audio1.volume = 0.2;
+        //audio1.playbackRate = 2; //velocidad de la musica
+        audio1.play();
+    }
+}
+
+//Si se hace click en el boton de pausar musica se llama a la funcion desactivarAudio y si la musica esta pausada se llama a la funcion activarAudio
+document.getElementById('pauseMusic').addEventListener('click', function() {
+    let audio1 = document.getElementById('music');
+    let audio2 = document.getElementById('music2');
+
+    // Verificar si alguno de los audios está actualmente en reproducción
+    if (!audio1.paused || !audio2.paused) {
+        desactivarAudio();
+    } else {
+        activarAudio();
+    }
+});
+
+function desactivarAudio() {
+    console.log("Se desactiva audio.");
+    let audio1 = document.getElementById('music');
+    let audio2 = document.getElementById('music2');
+
+    audio1.pause();
+    audio2.pause();
+}
+
+document.getElementById('music').addEventListener('ended', function() {
+    let audio2 = document.getElementById('music2');
+    audio2.volume = 0.3;
+    audio2.play();
+});
+
+
 //--------------------------------------------------------------------------

@@ -99,3 +99,4 @@ function crearFooter() {
     parrafo.textContent = `Copyright ${añoActual}. Designed by Apx.Jul`;
     footer.appendChild(parrafo);
 }
+
