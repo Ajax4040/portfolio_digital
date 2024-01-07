@@ -11,6 +11,7 @@
         <meta name="description" content="Hola, soy Julian Appella, un desarrollador web en formación especializado en HTML, CSS y JavaScript. Descubre mis proyectos y habilidades en mi portafolio digital.">
         <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+        <link href='https://fonts.googleapis.com/css?family=Black+Ops+One' rel='stylesheet' type='text/css'>
         <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css" rel="stylesheet">
         <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
         <script defer src="js/index.js"></script>
@@ -31,10 +32,10 @@
         </div>
         <div class="preGame" id="preGame">
             <div class="preGame__container">
-                <h1>Space Destroyer</h1>
+                <h1>MiniGame Rocket Man</h1>
                 <div class="preGame__instructions">
                     <h2>Instructions</h2>
-                    <p>Use the arrow keys on the keyboard to move the ship from left to right.</p>
+                    <p>Use the arrow keys on the keyboard to move the ship from left to right to avoid the asteroids. Be careful, the speed will increase every 20 seconds.</p>
                 </div>
                 <div class="preGame__buttons">
                     <button id="start">Start</button>
@@ -191,10 +192,14 @@
         <img src="images/ast1.png" alt="asteroid1" id="asteroid1" class="asteroid1"/>
         <img src="images/ast2.png" alt="asteroid2" id="asteroid2" class="asteroid2"/>
         <img src="images/ast1.png" alt="asteroid3" id="asteroid3" class="asteroid3"/>
-        <div id="counter" class="counter">
-            <p>000000</p>
-        </div>
+        <div id="counter" class="counter"><p>000000</p></div>
         <audio id="music" src="others/rick.mp3" preload="auto"></audio>
         <audio id="music2" src="others/galaxy1.mp3" preload="auto"></audio>
+        <audio id="colision" src="others/colision.mp3" preload="auto"></audio>
+        <audio id="gameOver" src="others/gameover.mp3" preload="auto"></audio>
+        <div id="gameOverDiv" class="gameOverDiv">
+            <p> GAME </p>
+            <p> OVER </p>
+        </div>
     </body>
 </html>

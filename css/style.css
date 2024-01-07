@@ -658,7 +658,7 @@ input::placeholder, textarea::placeholder {
 
 
 /*-----------------------------------preGame-------------------------------*/
-.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter{
+.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter {
     display: none;
 }
 
@@ -1145,12 +1145,14 @@ input::placeholder, textarea::placeholder {
         align-items:center;
         transition: transform 0.5s;
         cursor: pointer;
+        z-index: 8;
     }
 
     #pauseMusic{
         width: 4%;
         height: auto;
         position: fixed;
+        z-index: 8;
         top: 3%;
         left: 7%;
         display: none;
@@ -1169,6 +1171,7 @@ input::placeholder, textarea::placeholder {
         background-color: rgba(83,23,140,0.8);
         border-radius: 2px;
         position: fixed;
+        z-index: 8;
         top: 3%;
         right: 2%;
         display: none;
@@ -1206,6 +1209,26 @@ input::placeholder, textarea::placeholder {
         position: fixed;
         top: -15%;
         right: 5%;
+    }
+
+    #gameOverDiv{
+        width: 100%;
+        height: 100%;
+        z-index: 6;
+        background-color: rgba(137, 40, 228, 0.3);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .gameOverDiv p{
+        font-size: 160px;
+        font-family: 'Black Ops One', cursive;
+        line-height: 120px;
+        text-align: center;
+        text-shadow: 5px 5px #000000;
+        color: #ffffff;
     }
 
     .footer {

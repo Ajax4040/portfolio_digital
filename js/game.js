@@ -32,7 +32,7 @@ document.getElementById('start').addEventListener('click', function() {
 });
 
 let ultimoIncrementoVelocidad;
-const intervaloIncremento = 60000; // 60 segundo
+const intervaloIncremento = 20000; // 60 segundo
 let ultimoIncrementoContador;
 const rangoContador = 400;
 let puntos = 0;
@@ -57,10 +57,12 @@ function iniciarConteo() {
         document.getElementById('countdown').innerHTML = totalTime;
         if (totalTime == 0) {
             document.getElementById("countdown").style.display = "none";
+            let gameOverDiv = document.getElementById("gameOverDiv");
             inicioJuego = Date.now();
             juegoActivo = true;
             ultimoIncrementoVelocidad = Date.now();
             ultimoIncrementoContador = Date.now();
+            gameOverDiv.style.transform = 'translateY(-100%)';
             activarAudio();
             requestAnimationFrame(moverYDetectarColision);
             activarMovimientoNave();
@@ -136,7 +138,7 @@ function moverAsteroides() {
         juegoActivo = false;
         document.body.style.animation = "none";
         desactivarAudio();
-        alert("¡Colisión! Juego terminado.");
+        gameOver();
     } else if (juegoActivo) {
         requestAnimationFrame(moverAsteroides);
     }
@@ -263,6 +265,22 @@ document.getElementById('music').addEventListener('ended', function() {
     audio2.volume = 0.3;
     audio2.play();
 });
-
-
 //--------------------------------------------------------------------------
+
+//Funcion para el game over
+function gameOver() {
+    let gameOverDiv = document.getElementById("gameOverDiv");
+    gameOverDiv.style.display = "flex";
+    gameOverDiv.style.transform = 'translateY(0)';
+    gameOverDiv.style.transition = 'transform 15s ease';
+    let colision = document.getElementById('colision');
+
+    colision.volume = 0.3;
+    colision.play();
+}
+
+document.getElementById('colision').addEventListener('ended', function() {
+    let gameOver = document.getElementById('gameOver');
+    gameOver.volume = 0.3;
+    gameOver.play();
+});
