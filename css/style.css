@@ -658,7 +658,7 @@ input::placeholder, textarea::placeholder {
 
 
 /*-----------------------------------preGame-------------------------------*/
-.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter {
+.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter,#pauseMusic,#gameOverDiv {
     display: none;
 }
 
