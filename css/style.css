@@ -445,7 +445,7 @@ header .menu-icon img {
 
 .works__project{
     width: 70%;
-    height: 25%; /* Alto de cada proyecto */
+    height: 35%; /* Alto de cada proyecto */
     filter: drop-shadow(3px 3px 5px #2695ff);
 }
 
@@ -455,24 +455,14 @@ header .menu-icon img {
     height: 100%;
     overflow: hidden;
     position: relative;
+    border-radius: 5px;
 }
 
 /* Diferencias específicas */
-.imagen_fondo img{
+.imagen_fondo2 img, .imagen_fondo3 img{
     width: 100%;
     height: 100%;
 }
-
-.imagen_fondo2 video{
-    width: 100%;
-    height: 100%;
-}
-
-.imagen_fondo3 img{
-    width: 100%;
-    height: 100%;
-}
-
 /* Estilos comunes para titulo-1-proyect y titulo-2-proyect */
 .titulo-1-proyect, .titulo-2-proyect {
     position: absolute;
@@ -658,7 +648,7 @@ input::placeholder, textarea::placeholder {
 
 
 /*-----------------------------------preGame-------------------------------*/
-.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3, #counter,#pauseMusic,#gameOverDiv {
+.preGame, #countdown, .closeGame, #rocket2, #asteroid1, #asteroid2, #asteroid3,#asteroid4,#asteroid5, #counter,#pauseMusic,#gameOverDiv {
     display: none;
 }
 
@@ -944,7 +934,7 @@ input::placeholder, textarea::placeholder {
 
     .works__project{
         width: 45%;
-        height: 55%; /* Alto de cada proyecto */
+        height: 70%; /* Alto de cada proyecto */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1195,20 +1185,29 @@ input::placeholder, textarea::placeholder {
 
     #asteroid1, #asteroid2{
         display: none;
-        width: 60px; /* Ajusta el tamaño según sea necesario */
+        width: 5%; /* Tamaño */
         height: auto;
         position: fixed;
         top: -10%;
         left: 5%;
     }
 
-    #asteroid3{
+    #asteroid3, #asteroid4{
         display: none;
-        width: 90px; /* Ajusta el tamaño según sea necesario */
+        width: 8%; /* Tamaño */
+        height: auto;
+        position: fixed;
+        top: -20%;
+        right: 5%;
+    }
+
+    #asteroid5{
+        display: none;
+        width: 4%; /* Tamaño */
         height: auto;
         position: fixed;
         top: -15%;
-        right: 5%;
+        left: 5%;
     }
 
     #gameOverDiv{

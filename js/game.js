@@ -1,7 +1,8 @@
 //Se detecta cuando se hace click la imagen de la nave
 document.getElementById('rocket').addEventListener('click', function() {
     //Se detecta el ancho de la pantalla
-    if (window.innerWidth < 1000) {
+    console.log("Ancho de la pantalla: " + window.innerWidth);
+    if (window.innerWidth < 1000 || window.innerHeight > 2000) {
         Swal.fire({
             title: "For playing this game, please use a desktop computer.",
             width: 400,
@@ -32,12 +33,12 @@ document.getElementById('start').addEventListener('click', function() {
 });
 
 let ultimoIncrementoVelocidad;
-const intervaloIncremento = 20000; // 60 segundo
+const intervaloIncremento = 20000; // 20 segundos
 let ultimoIncrementoContador;
-const rangoContador = 400;
+const rangoContador = 300;
 let puntos = 0;
 let conteoIncrementos = 0;
-const maxIncrementos = 7; // Límite de incrementos
+const maxIncrementos = 9; // Límite de incrementos
 
 // Configuración inicial del juego
 function configurarJuego() {
@@ -47,7 +48,7 @@ function configurarJuego() {
     document.getElementById("header").style.animation = "slideUp 1.5s ease";
     document.body.style.height = "100vh";
     document.body.style.animation = "scroll 30s linear infinite";
-    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3", "closeGame", "counter", "pauseMusic"]);
+    mostrarElementos(["rocket2", "asteroid1", "asteroid2", "asteroid3","asteroid4","asteroid5", "closeGame", "counter", "pauseMusic"]);
 }
 
 // Conteo regresivo
@@ -78,7 +79,9 @@ function iniciarConteo() {
 const asteroides = [
     { id: 'asteroid1', posY: -60, velocidad: 3 },
     { id: 'asteroid2', posY: -120, velocidad: 4, retardo: 15000 },
-    { id: 'asteroid3', posY: -60, velocidad: 3.5, retardo: 15000 }
+    { id: 'asteroid3', posY: -80, velocidad: 3.5, retardo: 30000 },
+    { id: 'asteroid4', posY: -100, velocidad: 4, retardo: 60000 },
+    { id: 'asteroid5', posY: -60, velocidad: 4.3, retardo: 90000  },
 ];
 
 function moverAsteroides() {
