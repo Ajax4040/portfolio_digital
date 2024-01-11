@@ -33,7 +33,7 @@ document.getElementById('start').addEventListener('click', function() {
 });
 
 let ultimoIncrementoVelocidad;
-const intervaloIncremento = 20000; // 20 segundos
+const intervaloIncremento = 15000; // 20 segundos
 let ultimoIncrementoContador;
 const rangoContador = 300;
 let puntos = 0;
