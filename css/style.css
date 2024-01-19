@@ -839,7 +839,7 @@ input::placeholder, textarea::placeholder {
         padding-left: 7%;
         width: 40%;
         font-size: 5vw;
-        text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff, 0 0 100px #2695ff, 0 0 200px #2695ff;
+        text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff;
     }
 
     .imagen-perfil{
