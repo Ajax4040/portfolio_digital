@@ -353,7 +353,7 @@ header .menu-icon img {
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    scroll-margin-top: 3ex;
+    scroll-margin-top: 2ex;
 }
 
 .cajitas-skills{
@@ -417,7 +417,7 @@ header .menu-icon img {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    scroll-margin-top: 5ex;
+    scroll-margin-top: 3ex;
 }
 
 .works-h2{
