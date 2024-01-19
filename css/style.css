@@ -32,6 +32,36 @@ body {
     perspective-origin: 50% 50%;
 }
 
+/*-----------------------------Loading Screen---------------------------------*/
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 40;
+}
+
+.spinner {
+    border: 5px solid #3498db;
+    border-top: 5px solid #ffffff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    box-shadow: 0px 0px 15px 0px #3498db;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
 /*-----------------------------Dialog Box-------------------------------------*/
 .launcher {
     position: fixed;
@@ -106,7 +136,6 @@ header {
     height: 65px;
     background-color: rgba(48, 48, 48, 0.582);
     box-shadow: 0 1px 10px #2695ff, 0 2px 30px #2695ff;
-    animation: slideDown 1.2s ease forwards;
 }
 
 @keyframes slideDown {
@@ -468,7 +497,7 @@ header .menu-icon img {
 .titulo-1-proyect, .titulo-2-proyect {
     position: absolute;
     font-family: 'Rajdhani', sans-serif;
-    z-index: 1000;
+    z-index: 15;
     color: #ffffff;
     font-weight: 300;
     width: 80%;
@@ -673,6 +702,12 @@ input::placeholder, textarea::placeholder {
     /* Estilos para tabletas 768x1024px (pantalla de al menos 768px de ancho)*/
     #rocket{
         width: 45px; /* Ajusta según el tamaño de tu cohete */
+    }
+
+    .spinner {
+        width: 80px;
+        height: 80px;
+        box-shadow: 0px 0px 20px 0px #3498db;
     }
 
     header .logo img{
