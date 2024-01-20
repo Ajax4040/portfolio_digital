@@ -266,7 +266,7 @@ header .menu-icon img {
     font-weight: normal;
     text-align: center;
     color: #d4eaff;
-    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5), 0 0 40px #2695ff;
+    text-shadow: 0 0 0 transparent, 0 0 10px #2695ff, 0 0 20px rgba(38, 149, 255, 0.5);
     -webkit-animation: buzz 0.01s infinite alternate;
             animation: buzz 0.01s infinite alternate;
 }
