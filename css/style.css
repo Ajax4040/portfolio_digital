@@ -169,17 +169,16 @@ header .menu-icon img {
 }
 
 .menu-original ul li a {
-    text-decoration: none;
-    padding: 4px;
+    padding: 6px;
     color: #fff;
-    font-family: calibri;
+    font-family: Helvetica, sans-serif;
     text-align: center;
-    transition: transform 0.8s;
 	letter-spacing: 4px;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .menu-original a:hover{
-	transform: scale(1.1);
 	color: #fff;
     border-radius: 6px;
 	background-color: rgba(83,23,140,1);
@@ -331,7 +330,7 @@ header .menu-icon img {
 }
 
 .about-me h3{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif, Helvetica;
     letter-spacing: 2px;
     font-size: 0.7em;
     overflow:auto;
@@ -1256,10 +1255,6 @@ input::placeholder, textarea::placeholder {
 
     header .logo img{
         width: 70px;
-    }
-
-    .menu-original a{
-        font-size: 30px;
     }
 
     .about-me h3{
